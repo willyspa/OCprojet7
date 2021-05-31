@@ -1,3 +1,29 @@
 <template>
-    <h1>Hello</h1>
+
+   
+    <lightning-button label="search" onclick={handleSearchOpportunity}></lightning-button>
+
+        <lightning-input type="search"
+	        onchange={handleKey}
+	        variant="label-hidden"
+	        class="slds-var-m-bottom_small"
+	        label="Search"
+	        placeholder="Search for Opportunities"
+	        value={searchedOpportunity}>
+        </lightning-input>
+
+        <template  if:true = {opps}>
+            <div style="height: 300px;">
+                <lightning-datatable
+                        key-field="id"
+                        data={opps}
+                        columns={columns}>
+                </lightning-datatable>
+            </div>    
+        </template>
+
+        <template if:true = {error}>
+            <div><p>An error occured</p></div>
+        </template>
+
 </template>
