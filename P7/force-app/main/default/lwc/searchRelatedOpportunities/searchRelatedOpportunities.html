@@ -8,18 +8,19 @@
 	        variant="label-hidden"
 	        class="slds-var-m-bottom_small"
 	        label="Search"
-	        placeholder="Search for Opportunities"
+	        placeholder="Search for related Opportunities"
 	        value={searchedOpportunity}>
         </lightning-input>
 
         <template  if:true = {opps}>
-            <div style="height: 300px;">
+            <lightning-card variant="narrow" title="Opportunities" icon-name="standard:opportunity">
                 <lightning-datatable
                         key-field="id"
                         data={opps}
-                        columns={columns}>
+                        columns={columns}
+                        hide-checkbox-column>                      
                 </lightning-datatable>
-            </div>    
+            </lightning-card>    
         </template>
 
         <template if:true = {error}>
